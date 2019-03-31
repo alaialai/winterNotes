@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>typeAndObject</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  拆箱转换会尝试调用 valueOf 和 toString 来获得拆箱后的基本类型。 如果valueOf 和 toString或者没有返回基本类型， 则会产生类型错误TypeError。
+  var o = {
+    valueOf: () => {
+      console.log("valueOf");
+      return {}
+    },
+    toString: () => {
+      console.log("toString");
+      return {}
+    }
+  }
+  // o * 2 //valueOf -> toString -> TypeError
+  String(o) //toString -> valueOf-> TypeError
+</script>
+
+</html>
